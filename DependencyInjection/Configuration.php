@@ -27,8 +27,6 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('sid')->isRequired()->end()
             ->scalarNode('authToken')->isRequired()->end()
-            ->scalarNode('version')->defaultValue('2010-04-01')->end()
-            ->scalarNode('retryAttempts')->defaultValue(1)->end()
             ->end();
 
         return $treeBuilder;

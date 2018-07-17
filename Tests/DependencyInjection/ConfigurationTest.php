@@ -25,12 +25,10 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         /** @var \Symfony\Component\Config\Definition\ScalarNode[] $children  */
         $children = $tree->getChildren();
         //check length
-        $this->assertEquals(4, count($children));
+        $this->assertEquals(2, count($children));
         //check if all config values are available
         $this->assertArrayHasKey('sid', $children);
         $this->assertArrayHasKey('authToken', $children);
-        $this->assertArrayHasKey('version', $children);
-        $this->assertArrayHasKey('retryAttempts', $children);
     }
 
     /**
@@ -42,10 +40,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $config = $yaml->parse(file_get_contents(realpath(__DIR__ . '/../../Resources/config/services.yml')));
         //validate config
         $this->assertArrayHasKey('services', $config);
-        $this->assertArrayHasKey('twilio.api', $config['services']);
-        $this->assertArrayHasKey('class', $config['services']['twilio.api']);
-        // lookups
-        $this->assertArrayHasKey('twilio.lookups', $config['services']);
-        $this->assertArrayHasKey('class', $config['services']['twilio.lookups']);
+        $this->assertArrayHasKey('twilio.client', $config['services']);
+        $this->assertArrayHasKey('class', $config['services']['twilio.client']);
     }
 }

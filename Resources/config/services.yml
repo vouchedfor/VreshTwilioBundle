@@ -1,5 +1,3 @@
 services:
-    twilio.api:
+    twilio.client:
         class: Twilio\Rest\Client
-    twilio.lookups:
-        class: Twilio\Rest\Lookups

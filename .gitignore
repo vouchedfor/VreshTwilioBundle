@@ -9,3 +9,5 @@ composer.lock
 vendor/
 
 build
+
+phpunit.xml
